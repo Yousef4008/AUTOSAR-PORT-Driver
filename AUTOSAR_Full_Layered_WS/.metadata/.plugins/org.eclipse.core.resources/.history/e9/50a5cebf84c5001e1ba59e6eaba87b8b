@@ -1,0 +1,53 @@
+
+/*	____________________________________________________________________________
+  |																			    |
+  | Module: 														    		|
+  |																			    |
+  | File Name: Gpt_Cfg.h													    |
+  |																			    |
+  | Description: 						        								|
+  |																			    |
+  | Author: Youssif Hossam													    |
+  |_____________________________________________________________________________|
+*/
+#ifndef GPT_CFG_H_
+#define GPT_CFG_H_
+
+
+ /* Id for the company in the AUTOSAR
+ * for example ID = 23 :) */
+#define GPT_CFG_VENDOR_ID                           (23U)
+
+/*
+ * <MSN> Software Module Version 1.0.0
+ */
+#define GPT_CFG_SW_MAJOR_VERSION                    (1U)
+#define GPT_CFG_SW_MINOR_VERSION                    (0U)
+#define GPT_CFG_SW_PATCH_VERSION                    (0U)
+
+/*
+ * AUTOSAR Version 4.0.3
+ */
+#define GPT_CFG_AR_RELEASE_MAJOR_VERSION            (4U)
+#define GPT_CFG_AR_RELEASE_MINOR_VERSION            (0U)
+#define GPT_CFG_AR_RELEASE_PATCH_VERSION            (3U)
+
+/* Pre-compile option for Development Error Detect */
+#define GPT_DEV_ERROR_DETECT                        (STD_ON)
+
+/* Pre-compile option for Version Info API */
+#define GPT_VERSION_INFO_API                        (STD_ON)
+
+/* Enables/Disables wakeup source reporting */
+#define GPT_REPORT_WAKEUP_SOURCE                    (STD_ON)
+
+/* Reference to a container of the type McuClockReferencePoint, to select an input clock */
+#define GPT_CLOCK_REFERENCE
+
+/* Number of the configured Timer Channels */
+#define GPT_CONFIGURED_CHANNLES              (2U)
+
+/* Symbolic Names for all TM4C123GH6PM Timers */
+#define PortPin_A0_ID    ((uint8)0)
+
+#endif /* GPT_CFG_H_ */

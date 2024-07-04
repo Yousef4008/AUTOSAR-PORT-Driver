@@ -1,0 +1,25 @@
+
+**** Build of configuration Debug for project AUTOSAR_Full_Layered ****
+
+"C:\\ti\\ccs1250\\ccs\\utils\\bin\\gmake" -k -j 12 all -O 
+ 
+Building file: "../GPT.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="D:/SFE/M.T Advanced Embedded Systems/AUTOSAR/Project/AUTOSAR Full Layered/AUTOSAR_Full_Layered_WS/AUTOSAR_Full_Layered" --include_path="C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --check_misra="required,-1.1,-2.2,-10.1,-10.5,-17.4,-19.4,-19.10" --misra_advisory=warning --misra_required=warning --preproc_with_compile --preproc_dependency="GPT.d_raw"  "../GPT.c"
+"../GPT.c", line 126: warning #1464-D: (MISRA-C:2004 10.6/R) A "U" suffix shall be applied to all constants of unsigned type
+"../GPT.c", line 117: warning #552-D: variable "Gpt_Ptr" was set but never used
+"../GPT.c", line 194: warning #1383-D: (MISRA-C:2004 8.1/R) Functions shall have prototype declarations and the prototype shall be visible at both the function definition and call
+"../GPT.c", line 227: warning #1464-D: (MISRA-C:2004 10.6/R) A "U" suffix shall be applied to all constants of unsigned type
+"../GPT.c", line 218: warning #552-D: variable "Gpt_Ptr" was set but never used
+"../GPT.c", line 296: warning #1383-D: (MISRA-C:2004 8.1/R) Functions shall have prototype declarations and the prototype shall be visible at both the function definition and call
+"../GPT.c", line 301: warning #1421-D: (MISRA-C:2004 16.8/R) All exit paths from a function with non-void return type shall have an explicit return statement with an expression (function "Gpt_GetTimeElapsed")
+Finished building: "../GPT.c"
+ 
+Building target: "AUTOSAR_Full_Layered.out"
+Invoking: Arm Linker
+"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --check_misra="required,-1.1,-2.2,-10.1,-10.5,-17.4,-19.4,-19.10" --misra_advisory=warning --misra_required=warning -z -m"AUTOSAR_Full_Layered.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1250/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="AUTOSAR_Full_Layered_linkInfo.xml" --rom_model -o "AUTOSAR_Full_Layered.out" "./App.obj" "./Button.obj" "./Det.obj" "./Dio.obj" "./Dio_PBcfg.obj" "./GPT.obj" "./Gpt_1.obj" "./Gpt_Cfg.obj" "./Gpt_Irq.obj" "./Gpt_PBcfg.obj" "./Led.obj" "./Mcu.obj" "./Os.obj" "./Port.obj" "./Port_PBcfg.obj" "./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "../tm4c123gh6pm.cmd"  -llibc.a 
+<Linking>
+Finished building target: "AUTOSAR_Full_Layered.out"
+ 
+
+**** Build Finished ****

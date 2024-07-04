@@ -1,0 +1,9 @@
+GPT.obj: ../GPT.c
+GPT.obj: ..\GPT.h
+GPT.obj: ..\Std_Types.h
+GPT.obj: ..\Compiler.h
+GPT.obj: ..\Platform_Types.h
+GPT.obj: ..\Common_Macros.h
+GPT.obj: ..\Gpt_Cfg.h
+GPT.obj: ..\Det.h
+GPT.obj: ..\Std_Types.h

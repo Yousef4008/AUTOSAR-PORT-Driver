@@ -1,0 +1,116 @@
+
+/*	____________________________________________________________________________
+  |																			    |
+  | Module: GPT Driver Source file											    |
+  |																			    |
+  | File Name: GPT.c													        |
+  |																			    |
+  | Description: It initializes and controls the internal General Purpose       |
+  | Timer(s) (GPT) of the microcontroller. 						        		|
+  |																			    |
+  | Author: Youssif Hossam													    |
+  |_____________________________________________________________________________|
+*/
+
+#include "GPT.h"
+
+#if (GPT_DEV_ERROR_DETECT == STD_ON)
+
+#include "Det.h"
+/* AUTOSAR Version checking between Det and GPT Modules */
+#if ((DET_AR_RELEASE_MAJOR_VERSION != GPT_AR_RELEASE_MAJOR_VERSION)\
+ || (DET_AR_RELEASE_MINOR_VERSION != GPT_AR_RELEASE_MINOR_VERSION)\
+ || (DET_AR_RELEASE_PATCH_VERSION != GPT_AR_RELEASE_PATCH_VERSION))
+  #error "The AR version of Det.h does not match the expected version"
+#endif
+
+/* Checks if init function is called first or not so no operation can occur on
+ * the MCU ports and port pins if Port_Init function is not called first */
+static uint8 Gpt_Status = GPT_NOT_INITIALIZED;
+
+/* Holds the pointer of the Port_PinConfig */
+static const Gpt_ConfigType* Gpt_ConfigPtr = NULLPOINTER;
+
+
+/********************************************************************
+ * Function name: Port_GetVersionInfo
+ * Service ID: 0x00
+ * Sync/Async: Synchronous
+ * Reentrancy: Non Reentrant
+ * Parameters(in): None
+ * Parameters(out): versioninfo
+ * Return value: None
+ * Description: Returns the version information of this module
+ * Remarks:
+ *******************************************************************/
+#if (GPT_VERSION_INFO_API == STD_ON)
+void Gpt_GetVersionInfo(
+        Std_VersionInfoType* versioninfo
+)
+{
+    /* Development error tracing */
+#if (GPT_DEV_ERROR_DETECT == STD_ON)
+
+    if (versioninfo == NULLPOINTER)
+    {
+        Det_ReportError(GPT_MODULE_ID, GPT_INSTANCE_ID, GPT_GET_VERSION_INFO_SID, GPT_E_PARAM_POINTER);
+    }
+#endif
+
+    versioninfo->vendorID = GPT_VENDOR_ID;                         /* Return vendor ID */
+    versioninfo->moduleID = GPT_MODULE_ID;                         /* Return module ID */
+    versioninfo->sw_major_version = GPT_AR_RELEASE_MAJOR_VERSION;  /* Return Software Major Version */
+    versioninfo->sw_minor_version = GPT_AR_RELEASE_MINOR_VERSION;  /* Return Software Minor Version */
+    versioninfo->sw_patch_version = GPT_AR_RELEASE_PATCH_VERSION;  /* Return Software Patch Version */
+
+    return;
+}
+#endif
+
+/********************************************************************
+ * Function name: Gpt_Init
+ * Service ID: 0x01
+ * Sync/Async: Synchronous
+ * Reentrancy: Non Reentrant
+ * Parameters: ConfigPtr
+ * Return value: None
+ * Description: Initializes the hardware timer module
+ * Remarks:
+ *******************************************************************/
+
+void Gpt_Init(
+        const Gpt_ConfigType* ConfigPtr
+)
+{
+    /* Development error tracing */
+#if (GPT_DEV_ERROR_DETECT == STD_ON)
+
+    if ( (ConfigPtr == NULLPOINTER) )
+    {
+        Det_ReportError(GPT_MODULE_ID, GPT_INSTANCE_ID, GPT_INIT_SID, GPT_E_PARAM_POINTER);
+    }
+    else
+    {
+        /* Do Nothing ... */
+    }
+
+    if( (Gpt_Status == GPT_INITIALIZED) )
+    {
+        Det_ReportError(GPT_MODULE_ID, GPT_INSTANCE_ID, GPT_INIT_SID, GPT_E_ALREADY_INITIALIZED);
+    }
+    else
+    {
+        /* Do Nothing ... */
+    }
+#endif
+
+    /* Hold the Config pointer to structure on the global pointer */
+    Gpt_ConfigPtr = ConfigPtr;
+
+    /* Toggle the state of port to initialized */
+    Gpt_Status = GPT_INITIALIZED;
+
+}
+
+#endif
+
